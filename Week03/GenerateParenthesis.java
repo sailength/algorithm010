@@ -1,7 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
-class Solution {
+/**
+ * 22
+ */
+class GenerateParenthesis {
 
     private List<String> list = new ArrayList();
 
@@ -15,10 +18,10 @@ class Solution {
             list.add(s);
         }
         if (left > right) {
-            rec(left, right+1, n, s + ")");
+            rec(left, right + 1, n, s + ")");
         }
         if (left < n) {
-            rec(left+1, right, n, s + "(");
+            rec(left + 1, right, n, s + "(");
         }
     }
 

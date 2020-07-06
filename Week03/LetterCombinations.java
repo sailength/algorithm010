@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-class Solution {
+class LetterCombinations {
 
     private static List<String> result = new ArrayList<String>();
     static  Map<String, String> phone = new HashMap<String, String>() {{

@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
 
-class Solution {
+/** 78*/
+class Subsets {
 
 
-    private List<List<Integer>> result = new ArrayList<List<Integer>>;
+    private List<List<Integer>> result = new ArrayList<List<Integer>>();
 
     public List<List<Integer>> subsets(int[] nums) {
         dfs(nums, new ArrayList(),nums.length, 0);
