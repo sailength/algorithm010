@@ -1,5 +1,5 @@
 /**
- * k=any 188交易股票 暂时超时
+ * k=any 188交易股票
  */
 class MaxProfit6 {
     public int maxProfit(int k, int[] prices) {
@@ -12,20 +12,21 @@ class MaxProfit6 {
     }
 
     public int maxProfitAny(int[] prices, int k, int length) {
-        int dp[][][] = new int[length ][k+1][2];
-        for (int i = 0; i <= length; i++) {
-            for (int j = k; j >= 1; k--) {
+        int dp[][] = new int[k+1][2];
+        for (int i = 0; i < length; i++) {
+            for (int j = k; j >= 1; j--) {
                 if (i == 0) {
                     /** 处理基础值*/
-                    dp[i][j][0] = 0;
-                    dp[i][j][1] = Integer.MIN_VALUE;
+                    dp[j][0] = 0;
+                    dp[j][1] = -prices[i];
                     continue;
                 }
-                dp[i][j][0] = Math.max(dp[i - 1][j][0], dp[i - 1][j][1] + prices[i]);
-                dp[i][j][1] = Math.max(dp[i - 1][j][1], dp[i - 1][j - 1][0] - prices[i]);
+
+                dp[j][0] = Math.max(dp[j][0], dp[j][1] + prices[i]);
+                dp[j][1] = Math.max(dp[j][1], dp[j - 1][0] - prices[i]);
             }
         }
-        return dp[length-1][k][0];
+        return dp[k][0];
     }
 
     /**
