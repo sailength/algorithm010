@@ -12,7 +12,7 @@ class MaxProfit6 {
     }
 
     public int maxProfitAny(int[] prices, int k, int length) {
-        int dp[][] = new int[k+1][2];
+        int dp[][] = new int[k + 1][2];
         for (int i = 0; i < length; i++) {
             for (int j = k; j >= 1; j--) {
                 if (i == 0) {
